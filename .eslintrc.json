@@ -37,6 +37,7 @@
       }
     ],
     "class-methods-use-this": "off",
+    "array-callback-return": "off",
     "import/prefer-default-export": "off",
     "no-shadow": "off",
     "no-console": "off",
