@@ -43,6 +43,7 @@
     "no-console": "off",
     "no-useless-constructor": "off",
     "no-empty-function": "off",
+    "no-useless-return": "off",
     "lines-between-class-members": "off",
     "import/extensions": [
       "error",
@@ -57,7 +58,7 @@
         "newlinesBetween": "always",
         "groups": [
           "module",
-          "/^@shared/",
+          "/^@/",
           [
             "parent",
             "sibling",
