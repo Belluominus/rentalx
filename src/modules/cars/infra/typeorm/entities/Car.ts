@@ -49,8 +49,6 @@ class Car {
   constructor() {
     if (!this.id) {
       this.id = uuidV4();
-    }
-    if (!this.available) {
       this.available = true;
     }
   }
