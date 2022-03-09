@@ -3,7 +3,11 @@ import { Specification } from "@modules/cars/infra/typeorm/entities/Specificatio
 
 interface ISpecificationRepository {
   findByname(name: string): Promise<Specification>;
-  create({ description, name }: ICreateSpecificationDTO): Promise<void>;
+  create({
+    description,
+    name,
+  }: ICreateSpecificationDTO): Promise<Specification>;
+  findByIds(ids: string[]): Promise<Specification[]>;
 }
 
 export { ISpecificationRepository };
