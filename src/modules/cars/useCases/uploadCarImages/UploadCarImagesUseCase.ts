@@ -7,7 +7,7 @@ interface IRequest {
   images_name: string[];
 }
 @injectable()
-class UploadCarImageUseCase {
+class UploadCarImagesUseCase {
   constructor(
     @inject("CarImagesRepository")
     private carImagesRepository: ICarImagesRepository
@@ -19,4 +19,4 @@ class UploadCarImageUseCase {
   }
 }
 
-export { UploadCarImageUseCase };
+export { UploadCarImagesUseCase };

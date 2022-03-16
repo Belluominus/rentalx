@@ -23,7 +23,7 @@ describe("Authenticate User", () => {
     );
     createUserUseCase = new CreateUserUseCase(userRepositoryInMemory);
   });
-  it("shuld be able to authenticate an user", async () => {
+  it("should be able to authenticate an user", async () => {
     await createUserUseCase.execute(testUser);
 
     const token = await authenticateUserUseCase.execute({
@@ -34,7 +34,7 @@ describe("Authenticate User", () => {
     expect(token).toHaveProperty("token");
   });
 
-  it("shuldn't be able to authenticate an nonexistent user", () => {
+  it("shouldn't be able to authenticate an nonexistent user", () => {
     expect(async () => {
       await authenticateUserUseCase.execute({
         email: testUser.email,
@@ -43,7 +43,7 @@ describe("Authenticate User", () => {
     }).rejects.toBeInstanceOf(AppError);
   });
 
-  it("shuldn't be able to authenticate with incorect password", () => {
+  it("shouldn't be able to authenticate with incorect password", () => {
     expect(async () => {
       await createUserUseCase.execute(testUser);
 
