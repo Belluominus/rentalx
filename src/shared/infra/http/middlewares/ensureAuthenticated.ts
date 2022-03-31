@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 
+import auth from "@config/auth";
 import { UsersRepository } from "@modules/accounts/infra/typeorm/repositories/UsersRepository";
 import { AppError } from "@shared/errors/AppError";
 
@@ -19,17 +20,17 @@ export async function ensureAuthenticated(
 
   try {
     const usersRepository = new UsersRepository();
-    const { sub } = verify(token, "0dfb8e08098ba8d65847d9888171b92c");
+    const { sub: user_id } = verify(token, auth.secret_token);
 
-    if (typeof sub === "string") {
-      const user = usersRepository.findById(sub);
+    if (typeof user_id === "string") {
+      const user = usersRepository.findById(user_id);
 
       if (!user) {
         throw new AppError("User dos not existis!", 401);
       }
 
       request.user = {
-        id: sub,
+        id: user_id,
       };
 
       next();
